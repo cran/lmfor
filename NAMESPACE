@@ -1,0 +1,20 @@
+export(circle, linesplot, mywhiskers, NR, NRnum, updown, fithd, plot.hdmod, qqplotHD, ImputeHeights,
+       HDnaslund, HDpower, HDmeyer, HDmichailoff,  
+       HDnaslund2, 
+       HDnaslund3, HDnaslund4,
+       HDmicment, HDmicment2, HDwykoff, 
+       HDcurtis, 
+       HDprodan, HDlogistic, HDrichards, HDweibull, 
+       HDgomperz, HDsibbesen, HDkorf, 
+       HDratkowsky, HDhossfeldIV,
+       startHDnaslund, startHDpower, startHDmeyer, startHDmichailoff,  
+       startHDnaslund2,  startHDnaslund3, startHDnaslund4, 
+       startHDmicment, startHDmicment2, startHDwykoff,  
+       startHDcurtis, 
+       startHDprodan, startHDlogistic, startHDrichards, startHDweibull, 
+       startHDgomperz, startHDsibbesen, startHDkorf, 
+       startHDratkowsky, startHDhossfeldIV,
+       predvol, recweib, func.recweib, scaleDMean, scaleDGMean,
+       scaleDMed, scaleDGMed)
+import(nlme,MASS,stats4)
+S3method(plot,hdmod)

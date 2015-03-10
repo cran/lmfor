@@ -1,0 +1,14 @@
+Package: lmfor
+Type: Package
+Title: Functions for Forest Biometrics
+Version: 1.1
+Date: 2015-03-10
+Author: Lauri Mehtatalo
+Maintainer: Lauri Mehtatalo <lauri.mehtatalo@uef.fi>
+Depends: stats4, nlme, MASS
+Description: Functions related to forest biometrics, including illustrative graphics, numerical computation, modeling height-diameter relationships, prediction of tree volumes, and recovery of tree diameter distributions. Datasets on tree height-diameter relationship and light response of moss photosynthesis are included.  
+License: GPL-2
+Packaged: 2015-03-10 14:50:03 UTC; lamehtat
+NeedsCompilation: no
+Repository: CRAN
+Date/Publication: 2015-03-10 17:47:31
