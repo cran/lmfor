@@ -37,7 +37,7 @@ Plotting method for class \code{hdmod}
 The function makes residual plots on a fitted H-D model, which can be used to explore whether the fixed part 
 satisfactorily models the shape of H-D models. 
 The residuals are plotted on diameters standardized at plot level (dsd) or on raw diameters (d) according to argument \code{standd}. 
-Here dsd=(d-D)/SDD, where d is tree diameter, D and SDD are the mean and standard deviation 
+Here \eqn{dsd=(d-D)/SDD}, where \eqn{d} is tree diameter, \eqn{D} and \eqn{SDD} are the mean and standard deviation 
   of diameters on the plot in question.  Using plot-specific standardized diameter ensures that e.g.,
 the medium-sized trees of the plot are always in the middle of the plot, which provides 
 a better graph to explore the fit at the plot level in a dataset where the diameter range varies between plots.
@@ -65,5 +65,5 @@ plot(model)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ forest biometrics}
+\keyword{ graphs} 

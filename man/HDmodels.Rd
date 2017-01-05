@@ -179,13 +179,9 @@ lines(d,HDnaslund(d,a=theta[1],b=theta[2]),col="red",lwd=5)
 }
 
 \references{
-Mehtatalo, L., Gregoire, T.G., and de Miguel, S. Modeling Height-diameter curves for height prediction. Manuscript.
-
-Mehtatalo, L. 2004. A longitudinal height-diameter model for Norway spruce in Finland. Canadian Journal of Forest Research 34(1): 131-140.
-
-Mehtatalo, L. 2005. Height-diameter models for Scots pine and birch in Finland. Silva Fennica 39(1): 55-66.
+Mehtatalo, L., de Miguel, S. and Gregoire, T.G. Modeling Height-diameter curves for prediction. Canadian Journal of Forest Research, 45(7): 826-837, 10.1139/cjfr-2015-0054.
 }
+
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ forest biometrics}

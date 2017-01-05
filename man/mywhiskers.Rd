@@ -50,7 +50,8 @@ The color for lines that do not cross the y-axis.
 }
 }
 \details{
-The function first classifies the data in \code{nclass} classes of variable x. 
+The function first classifies the data in \code{nclass} classes of variable x so that 
+each class has approximately equal number of observations. 
 Then the class mean and deviation s is computed for each class, where s is either 
 the standard error of the mean (if \code{se=TRUE}) 
 or standard deviation (if \code{se=FALSE}). 
@@ -86,3 +87,5 @@ mywhiskers(x,resid(fm1),se=FALSE,add=TRUE)
 mywhiskers(x,resid(fm1),se=TRUE,lwd=2,add=TRUE)
 abline(h=0)
 }
+
+\keyword{ graphs} 

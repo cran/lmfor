@@ -5,9 +5,9 @@
 Solve systems of equations using the Gauss-Newton algorithm
 }
 \description{
-Solves systems of functions of form f_1(x) = 0, f_2(x) = 0,... for vector x using the Gauss-Newton algorithm
-(the multidimensional version of the Newton-Raphson algorithm). The gradients 
-are solved numerically within the function using R-function \code{numericDeriv}. 
+Solves systems of functions of form \eqn{f_1(x) = 0},\eqn{f_2(x) = 0},... for vector \eqn{x} 
+using the Gauss-Newton algorithm (the multidimensional version of the Newton-Raphson algorithm). 
+The gradients  are solved numerically within the function using R-function \code{numericDeriv}. 
 }
 \usage{
 NRnum(init, fnlist, crit = 6, ...)
@@ -18,10 +18,10 @@ NRnum(init, fnlist, crit = 6, ...)
   A vector of initial values for x.
   }
   \item{fnlist}{
-  a list of R-functions for f_1(x), f_2(x), ... the functions get a vector-valued argument x and return a scalar value.
+  a list of R-functions for \eqn{f_1(x)}, \eqn{f_2(x)}, ... the functions get a vector-valued argument \eqn{x} and return a scalar value.
   }
   \item{crit}{
-  The maximum accepted value of the convergence criteria. The applied criteria is the sum of absolute function values at the solution (|f_1(x)|+|f_2(x)+...|)
+  The maximum accepted value of the convergence criteria. The applied criteria is the sum of absolute function values at the solution (\eqn{|f_1(x)|+|f_2(x)+...|})
   }
   \item{\dots}{
   Other arguments passed to the functions of \code{fnlist}
@@ -31,7 +31,7 @@ NRnum(init, fnlist, crit = 6, ...)
 
 \value{
 A list of components 
-\item{par }{the value of vector x in the solution}
+\item{par }{the value of vector \eqn{x} in the solution}
 \item{crit }{the value of the convergence criterion at the solution}
 If estimation fails (no solution is found during 100 iterations), both elements of the solution are NA's. 
 }
@@ -57,3 +57,4 @@ momrec<-NRnum(c(3,13),functions)
 momrec$par
 }
 
+\keyword{ numerical computations }

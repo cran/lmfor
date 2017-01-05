@@ -3,22 +3,22 @@
 \title{Plot circles of a specified radius}
 \description{Adds circles of radii r at coordinates specified by x and y onto an existing plot.}
 \usage{
-circle(x, y, r, col = "black", lty = "solid", lwd = 1, grayfill = FALSE)
+circle(x,y,r,border="black",lty="solid",lwd=1,fill=NULL)
 }
 \arguments{
-  \item{x,y}{the x- and y- coordinates of the midpoints}
-  \item{r}{the radii of the circles}
-  \item{col, lty, lwd}{the draving color, line type and line width of the perimeter line}
-  \item{grayfill}{Logical- whether gray shading will be used for the circles or not
-}
+  \item{x,y,r}{Vectors of the x- and y- coordinates of the midpoints and the associated radii. 
+               Vectors x, y and r should be of the same length}
+  \item{border, lty, lwd}{the draving color, line type and line width of the perimeter line. 
+                          Use border=NA to omit the perimeter.}
+  \item{fill}{The color used to fill the circles. fill=NULL does not fill at all.}
 
 }
 \value{
-This function is used for its side effects.
+This function is used for its side effects on the graphical display.
 }
 
 \author{
-Lauri Meht\"atalo
+Lauri Mehtatalo
 }
 
 \examples{
@@ -32,5 +32,5 @@ circle(x=runif(n,0,10),
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ circle } 
+\keyword{ graphs} 
 % __ONLY ONE__ keyword per line

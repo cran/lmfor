@@ -9,8 +9,9 @@ mywhiskers<-function(x, y, nclass=10, limits=NA,
 			if (is.na(limits[1])) { 
 			while (sum(is.na(means+ses))&nclass>1) { # decrease the number of classes if there are too few observations
 			   nclass<-nclass-1
-               limits<-seq(min(x),max(x)+1e-10,length=nclass+1) 
- 
+ #              limits<-seq(min(x),max(x)+1e-10,length=nclass+1) 
+			   limits<-quantile(x,probs=seq(0,1,length=nclass+1))
+			   limits[nclass+1]<-limits[nclass+1]+1e-8
                means<-sapply(1:nclass,function(i) mean(y[x>=limits[i]&x<limits[i+1]]))
                if (se) { 
                   ses<-sapply(1:nclass,function(i) sd(y[x>=limits[i]&x<limits[i+1]])/
@@ -82,28 +83,19 @@ linesplot<-function(x, y, group,
 			lines(lowess(x[col==apu[i]],y[col==apu[i]],f=0.5,iter=5),col=apu[i],lwd=3)
 	}
 }
-# this function plots circles of radius r at locations specified by x and y
-circle<-function(x, y, r, col="black", lty="solid", lwd=1, grayfill=FALSE) {
-        xapu<-sin(seq(0,pi,length=50)-pi/2)
-        for (i in 1:length(x)) {
-            if (grayfill) {
-               xv1<-x[i]+xapu*r[i]/2
-               xv2<-x[i]-xapu*r[i]/2
-               yv1<-sqrt(pmax(0,(r[i]/2)^2-(xv1-x[i])^2))+y[i]
-               yv2<--sqrt(pmax(0,(r[i]/2)^2-(xv2-x[i])^2))+y[i]
-               yv<-c(yv1,yv2)
-               xv<-c(xv1,xv2)
-               lines(xv,yv,col="gray",lwd=5*r[i])               
-               }
-            xv1<-x[i]+xapu*r[i]
-            xv2<-x[i]-xapu*r[i]
-            yv1<-sqrt(pmax(0,r[i]^2-(xv1-x[i])^2))+y[i]
-            yv2<--sqrt(pmax(0,r[i]^2-(xv2-x[i])^2))+y[i]
-            yv<-c(yv1,yv2)
-            xv<-c(xv1,xv2)
-            lines(xv,yv,col=col,lty=lty,lwd=lwd)
-            }
-        }
+
+circle<-function(x,y,r,border="black",lty="solid",lwd=1,fill=NULL) {
+	xapu<-sin(seq(0,pi,length=50)-pi/2)
+	for (i in 1:length(x)) {
+		xv1<-x[i]+xapu*r[i]
+		xv2<-x[i]-xapu*r[i]
+		yv1<-sqrt(pmax(0,r[i]^2-(xv1-x[i])^2))+y[i]
+		yv2<--sqrt(pmax(0,r[i]^2-(xv2-x[i])^2))+y[i]
+		yv<-c(yv1,yv2)
+		xv<-c(xv1,xv2)
+		polygon(xv,yv,border=border,col=fill,lty=lty,lwd=lwd)
+	}
+}
         
 # Newton-Raphson algorithm for n multidimensional functions using numeric differentiation
 NRnum<-function(init, fnlist, crit=6,...) {
@@ -1020,4 +1012,92 @@ predvol<-function(species,d,h=0,model=1) {
 				   
 				   list(shape=exp(lshape$par)+0.01, scale=scale, G=G, N=N, D=D, Dtype=Dtype, val=lshape$value)
 			   }
+
+# The stand table example
+# The multinomial distribution
+# Linear interpolation.
+# Assuming given values of X and Y, the function 
+# returns the interpolated values at points x and the first derivative.
+# In the case of percentile-based distribution, these are the distribution function and density.
+			   interpolate<-function(x,X,Y) {
+				   n<-length(X) # the number of points, the number of intervals is n-1
+				   iv<-1:n       
+				   # define the interval at which each of x values is located 
+				   # i is a vector including values from 1 to n-1
+				   i<-sapply(x,function(x) max(c(1,iv[x>=X]))) 
+				   i[x>=X[n]]<-n-1 # extrapolation at the upper end 
+				   i[x<X[1]]<-1    # extrapolation at the lower end
+				   # compute the n-1 long vector of slope coefficients
+				   slope<-(Y[iv+1]-Y[iv])/(X[iv+1]-X[iv])  
+				   slope<-slope[-length(slope)]
+				   # compute the value for each value in x by picking the correct constant and slope 
+				   y<-Y[i]+slope[i]*(x-X[i])
+				   list(y=y,dy=slope[i],const=Y[-length(slope)]-slope*X[-length(slope)],slope=slope)
+			   }
 			   
+
+ddcomp<-function(d,density="dweibull",power=0,
+		         limits=seq(0,100),limitsd=limits,plot=FALSE,...) {
+        n<-length(limits)-1
+		if (is.character(density)) {
+           f <- match.fun(density)
+           pdf <- function(x) f(x, ...)
+	       cdf<-function(x) sapply(x,function(xi) integrate(pdf,0,xi)$value)
+		   if (cdf(limits[1])>1e-6|cdf(limits[n+1])<(1-1e-6)) {
+			   warning(paste("The provided limits seems not cover 
+                              the whole range of estimated pdf:", cdf(limits[1]),cdf(limits[n+1]))) }
+		   EX<-integrate(function(x) x*pdf(x),0,Inf)$value
+		   EX2<-integrate(function(x) x^2*pdf(x),0,Inf)$value
+
+	   } else if (is.numeric(density)) {
+
+		   nd<-length(limitsd)-1
+		   meansd<-(limitsd[-1]+limitsd[-(nd+1)])/2
+
+		   if (length(density)!=nd) {
+			   stop("Incompatible number of diameter classes in the estimated density") }
+
+		   if (abs(sum(density)-1)>1e-8) {
+			   stop("Estimated densities should sum up to unity") }
+
+		   f<-density
+           EX<-sum(f*meansd)
+		   EX2<-sum(f*meansd^2)
+		   cdf<-function(x) {
+                F<-c(0,sapply(1:length(f),function(i) sum(f[1:i])))   
+				interpolate(x,limitsd,F)$y
+		   }  
+		} else {
+			stop("Argument density should be either character or numeric.")
+		}
+		varX<-EX2-EX^2
+		meanD<-mean(d)
+		sdD<-sd(d)
+		mudif<-meanD-EX
+		vardif<-sdD^2-varX
+		sddif<-sdD-sqrt(varX)
+		
+		cdf2<-function(y) cdf(sqrt(varX)/sdD*(y-meanD)+EX) 
+		
+		if (plot) {
+			      plot(ecdf(d))
+				  yapu<-seq(min(d),max(d),length=100)
+				  lines(yapu,cdf2(yapu))
+				  lines(yapu,cdf(yapu),lty="dashed")
+				  legend("topleft",legend=c("scaled","original"),lty=c("solid","dashed"))
+			  }
+        means<-(limits[-1]+limits[-(n+1)])/2
+        if (min(d)<limits[1]|max(d)>limits[n+1]) {
+		   stop("The provided limits do not cover all observed diameters.") }			  
+			  
+	    dp<-d^power
+        sumdp<-sum(dp)
+        ftrue<-sapply(1:n,function(i) sum(dp[d>=limits[i]&d<limits[i+1]]))/sumdp
+        Fpred<-cdf2(limits)
+        fpred<-Fpred[-1]-Fpred[-n]
+        fpred<-fpred*means^power/sum(fpred*means^power)
+        list(mudif=mudif,vardif=vardif,
+             sddif=sddif,errorindex=sum(abs(fpred-ftrue)))
+        }
+		
+

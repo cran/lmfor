@@ -1,4 +1,4 @@
-export(circle, linesplot, mywhiskers, NR, NRnum, updown, fithd, plot.hdmod, qqplotHD, ImputeHeights,
+export(circle, fithd, func.recweib,
        HDnaslund, HDpower, HDmeyer, HDmichailoff,  
        HDnaslund2, 
        HDnaslund3, HDnaslund4,
@@ -7,6 +7,10 @@ export(circle, linesplot, mywhiskers, NR, NRnum, updown, fithd, plot.hdmod, qqpl
        HDprodan, HDlogistic, HDrichards, HDweibull, 
        HDgomperz, HDsibbesen, HDkorf, 
        HDratkowsky, HDhossfeldIV,
+       ImputeHeights, linesplot,  mywhiskers, NR, NRnum, 
+       plot.hdmod, predvol, qqplotHD,  recweib, 
+       scaleDMean, scaleDGMean,
+       scaleDMed, scaleDGMed,
        startHDnaslund, startHDpower, startHDmeyer, startHDmichailoff,  
        startHDnaslund2,  startHDnaslund3, startHDnaslund4, 
        startHDmicment, startHDmicment2, startHDwykoff,  
@@ -14,7 +18,12 @@ export(circle, linesplot, mywhiskers, NR, NRnum, updown, fithd, plot.hdmod, qqpl
        startHDprodan, startHDlogistic, startHDrichards, startHDweibull, 
        startHDgomperz, startHDsibbesen, startHDkorf, 
        startHDratkowsky, startHDhossfeldIV,
-       predvol, recweib, func.recweib, scaleDMean, scaleDGMean,
-       scaleDMed, scaleDGMed)
+       updown,ddcomp)
 import(nlme,MASS,stats4)
+importFrom("grDevices", "devAskNewPage")
+importFrom("graphics", "abline", "legend", "lines", "par", "points","polygon")
+importFrom("stats", "as.formula", "ecdf", "integrate", "lm", "lowess",
+           "na.omit", "numericDeriv", "predict", "qgamma", "qqline",
+           "qqnorm", "quantile", "resid", "rnorm", "sd", "terms")
+
 S3method(plot,hdmod)

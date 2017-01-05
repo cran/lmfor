@@ -134,5 +134,4 @@ fithd(spati$d,spati$h,spati$plot)
 fithd(spati$d,spati$h,spati$plot,SubModels=c("dmean","log(dmean)"),varf=2)
 }
 
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }
+\keyword{ forest biometrics }

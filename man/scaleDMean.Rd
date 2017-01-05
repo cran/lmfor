@@ -55,3 +55,4 @@ scaleDGMed(15,3)
 }
 
 \keyword{ forest biometrics }
+\keyword{ diameter distributions }

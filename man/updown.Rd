@@ -5,14 +5,15 @@
 Solve a simple equation using a step halving algorithm.
 }
 \description{
-Solves equations of form f(x)=0, for scalar x (l<=x<=u) using a simple step halving algorithm. 
+Solves equations of form \eqn{f(x)=0}, for scalar \eqn{x} \eqn{(l<=x<=u)} using a simple step 
+halving algorithm, where \eqn{f(x)} is a monotonic continuous function. 
 Initial finite upper and lower bounds for 
-x are required. The algorithm first computes f for x=u and x=l. 
+x are required. The algorithm first computes \eqn{f} for \eqn{x=u} and \eqn{x=l}. 
 If the sign was different then 
-another call is performed at the midpoint x=(u+l)/2, and the midpoint is 
+another call is performed at the midpoint \eqn{x=(u+l)/2}, and the midpoint is 
 taken as a new upper or lower bound, according to the location of sign change. 
 The upper or lower bound are repeatedly updated until the 
-absolute value at the midpoint is below a specified criteria.    
+absolute value of f at the midpoint is below a specified criteria.    
 }
 \usage{
 updown(l, u, fn, crit = 6)
@@ -26,15 +27,16 @@ The initial lower bound
 The initial upper bound
 }
   \item{fn}{
-R-function for f(x)
+R-function for \eqn{f(x)}
 }
   \item{crit}{
-The convergence criteria (Maximum accepted value of f at the solution is 10^(-\code{crit})).
+The convergence criteria (Maximum accepted value of f at the solution is \eqn{10^{-\code{crit}}}).
 }
 }
 
 \value{
-A scalar giving the value of x at the solution. If the sign did not change between l and u, NA is returned. 
+A scalar giving the value of \eqn{x} at the solution. 
+If the sign did not change between l and u, NA is returned. 
 }
 
 \author{
@@ -49,3 +51,4 @@ fn<-function(x) pweibull(x,5,15)-0.5
 updown(1,50,fn)
 }
 
+\keyword{ numerical computations }

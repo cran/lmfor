@@ -109,8 +109,9 @@ plot effect (if level=1).}
 }
 
 \references{
-Mehtatalo, L., Gregoire, T.G. and de-Miguel, S. Modeling height-diameter curves for prediction. Manuscript.  
+Mehtatalo, L., de Miguel, S. and Gregoire, T.G. Modeling Height-diameter curves for prediction. Canadian Journal of Forest Research, 45(7): 826-837, 10.1139/cjfr-2015-0054.
 }
+
 \author{
 Lauri Mehtatalo <lauri.mehtatalo@uef.fi>
 }
@@ -157,3 +158,4 @@ plot(spati$d[ImpRandom$imputed],
 #     ylim=c(0,30))
 }
 
+\keyword{ forest biometrics}

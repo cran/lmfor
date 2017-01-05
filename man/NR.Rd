@@ -5,7 +5,7 @@
 Solve simple equations using Newton-Raphson algorithm.
 }
 \description{
-Solves equations of form f(x)=0, for scalar x using the Newton-raphson algorithm.  
+Solves equations of form \eqn{f(x)=0}, for scalar \eqn{x} using the Newton-Raphson algorithm.  
 }
 \usage{
 NR(init, fn, gr, crit = 6, range = c(-Inf, Inf))
@@ -13,19 +13,19 @@ NR(init, fn, gr, crit = 6, range = c(-Inf, Inf))
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{init}{
-  Numeric scalar, The initial guess for x.
+  Numeric scalar, The initial guess for \eqn{x}.
   }
   \item{fn}{
-  An R-function returning the scalar value of f(x), with x as the only argument. 
+  An R-function returning the scalar value of \eqn{f(x)}, with \eqn{x} as the only argument. 
   }
   \item{gr}{
-  An R-function returning the first derivative of f(x), with x as the only argument. 
+  An R-function returning the first derivative of \eqn{f(x)}, with \eqn{x} as the only argument. 
   }
   \item{crit}{
-  Convergence criteria. The upper limit for the absolute value of f(x) at an accepted the solution. 
+  Convergence criteria. The upper limit for the absolute value of \eqn{f(x)} at an accepted the solution. 
   }
   \item{range}{
-  A two-unit vector giving the upper and lower bounds for x. The solution is searched from within this range.   
+  A two-unit vector giving the upper and lower bounds for \eqn{x}. The solution is searched from within this range.   
   }
 }
 
@@ -35,9 +35,10 @@ The function is a straightforward implementation of the well-known Newton-Raphso
 
 \value{
 A list of components 
-\item{par }{the value of x in the solution}
-\item{crit }{the value of f(x) at the solution}
-If estimation fails (no solution is found during 100000 iterations), both elements of the solution are NA's. 
+\item{par }{the value of \eqn{x} in the solution}
+\item{crit }{the value of \eqn{f(x)} at the solution}
+If estimation fails (no solution is found during 100000 iterations), both e
+lements of the solution are NA's. 
 }
 \author{
 Lauri Mehtatalo <lauri.mehtatalo@uef.fi>
@@ -68,6 +69,6 @@ grad<-function(shape) {
 shape<-NR(5,fn=function(x) func(x,G=10000*15,1000,15),gr=grad,crit=10,range=c(2.1,Inf))$par
 }
 
-
+\keyword{ numerical computations }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 

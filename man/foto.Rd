@@ -23,7 +23,7 @@ was measured one year later for those samples which had survived.
     \item{\code{moisture}}{moisture of the sample}
     \item{\code{PARtop}}{Photosyntetically active radiation (photon flux density  \eqn{\mu mol /m^2 /s^2})}
     \item{\code{WT}}{water table, cm}
-    \item{\code{A}}{Net CO2 exchange, \eqn{\mu mol g^{-1}(DM) h^{-1}}, }
+    \item{\code{A}}{Net CO2 exchange, \eqn{\mu {mol} / g / h}, }
     \item{\code{subplot}}{a factor with unique value for each replicate}
   }
 }
@@ -41,7 +41,8 @@ through gas exchange fluorescence measurement system (GFS-3000; Walz, Effeltrich
 \references{
 Laine, A.M., Ehonen, S., Juurola, E., Mehtatalo, L., and Tuittila, E-S. 2015. 
 Performance of late succession species along a chronosequence: Environment does not exclude 
-Sphagnum fuscum from the early stages of mire development. Journal of Vegetation Science. DOI: 10.1111/jvs.12231
+Sphagnum fuscum from the early stages of mire development. 
+Journal of Vegetation Science 26(2): 291-301. DOI: 10.1111/jvs.12231
 }
 
 \examples{

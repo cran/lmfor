@@ -45,3 +45,5 @@ species<-c(1,1,1,3)
 predvol(species,d,h,model=2)
 predvol(species,d,model=1)
 }
+
+\keyword{ forest biometrics}
