@@ -18,8 +18,9 @@ export(circle, fithd, func.recweib,
        startHDprodan, startHDlogistic, startHDrichards, startHDweibull, 
        startHDgomperz, startHDsibbesen, startHDkorf, 
        startHDratkowsky, startHDhossfeldIV,
-       updown,ddcomp)
-import(nlme,MASS,stats4)
+       updown,ddcomp,
+       HTest,area_esh,gg_wind)
+import(nlme,stats4,spatstat)
 importFrom("grDevices", "devAskNewPage")
 importFrom("graphics", "abline", "legend", "lines", "par", "points","polygon")
 importFrom("stats", "as.formula", "ecdf", "integrate", "lm", "lowess",

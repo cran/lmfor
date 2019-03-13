@@ -49,40 +49,87 @@ mywhiskers<-function(x, y, nclass=10, limits=NA,
 # This is for plotting the response against age and connecting the observations of the same subject
 # in a longitudinal study.
 # in a longitudinal study.
-linesplot<-function(x, y, group,
-		xlab="x", ylab="y", main="", cex=0.5, pch=19, 
-		col=1, col.lin=1, lw=FALSE, ylim=NULL, xlim=NULL,
-		add=FALSE, lty="solid",lwd=1) {
-	group<-group[order(x)]
-	y<-y[order(x)]
+#linesplot<-function(x, y, group,
+#		xlab="x", ylab="y", main="", cex=0.5, pch=19, 
+#		col=1, col.lin=1, lw=FALSE, ylim=NULL, xlim=NULL,
+#		add=FALSE, lty="solid",lwd=1) {
+#	group<-group[order(x)]
+#	y<-y[order(x)]
+#	
+#	col<-rep(col,length(x))
+#	if (length(col.lin)==1) col.lin=rep(col.lin,length(x))
+#	col.lin<-col.lin[order(x)]
+#	
+#	if (length(lty)==1) lty=rep(lty,length(x))
+#	lty<-lty[order(x)]
+#	
+#	if (length(lwd)==1) lwd=rep(lwd,length(x))
+#	lwd<-lwd[order(x)]
+#	
+#	x<-x[order(x)]
+#	if (!add) {
+#		plot(x,y,type="n",xlab=xlab,ylab=ylab,main=main,cex=cex,pch=pch,col=col,ylim=ylim,xlim=xlim)
+#	}
+#	apu<-unique(group)
+#	for (i in 1:length(apu)) {
+#		print(col.lin[group==apu[i]])
+#		lines(x[group==apu[i]],y[group==apu[i]],col=col.lin[group==apu[i]],lty=lty[group==apu[i]],
+#				lwd=lwd[group==apu[i]])
+#	}
+#	points(x,y,col=col,cex=cex)
+#	if (lw) {
+#		apu<-unique(col)
+#		for (i in 1:length(apu))
+#			lines(lowess(x[col==apu[i]],y[col==apu[i]],f=0.5,iter=5),col=apu[i],lwd=3)
+#	}
+#}
+
+# Mikan paivitys 3.4.2018.
+# Laurin paivitys 18.1.2018 (split-funktion kaytto nopeutti toimintaa)
+linesplot<-function (x, y, group, xlab = "x", ylab = "y", main = "", cex = 0.5, 
+		pch = 19, col = 1, col.lin = 1, lw = FALSE, ylim = NULL, 
+		xlim = NULL, add = FALSE, lty = "solid", lwd = 1) 
+{
+	group <- group[order(x)]
+	y <- y[order(x)]
+	if (length(col) == 1)
+		col <- rep(col, length(x))
+	col <- col[order(x)]
+	if (length(col.lin) == 1) 
+		col.lin = rep(col.lin, length(x))
+	col.lin <- col.lin[order(x)]
+	if (length(lty) == 1) 
+		lty = rep(lty, length(x))
+	lty <- lty[order(x)]
+	if (length(lwd) == 1) 
+		lwd = rep(lwd, length(x))
+	lwd <- lwd[order(x)]
+	x <- x[order(x)]
 	
-	col<-rep(col,length(x))
-	if (length(col.lin)==1) col.lin=rep(col.lin,length(x))
-	col.lin<-col.lin[order(x)]
-	
-	if (length(lty)==1) lty=rep(lty,length(x))
-	lty<-lty[order(x)]
-	
-	if (length(lwd)==1) lwd=rep(lwd,length(x))
-	lwd<-lwd[order(x)]
-	
-	x<-x[order(x)]
 	if (!add) {
-		plot(x,y,type="n",xlab=xlab,ylab=ylab,main=main,cex=cex,pch=pch,col=col,ylim=ylim,xlim=xlim)
+		plot(x, y, type = "n", xlab = xlab, ylab = ylab, main = main, 
+				cex = cex, pch = pch, col = col, ylim = ylim, xlim = xlim)
 	}
-	apu<-unique(group)
-	for (i in 1:length(apu)) {
-		print(col.lin[group==apu[i]])
-		lines(x[group==apu[i]],y[group==apu[i]],col=col.lin[group==apu[i]],lty=lty[group==apu[i]],
-				lwd=lwd[group==apu[i]])
+	
+	sx<-split(x,group)
+	sy<-split(y,group)
+	scol<-split(col,group)
+	scol.lin<-split(col.lin,group)
+	slty<-split(lty,group)
+	slwd<-split(lwd,group)
+	
+	for (i in 1:length(sx)) {
+		lines(sx[[i]], sy[[i]], col = scol.lin[[i]], lty = slty[[i]], lwd = slwd[[i]])
 	}
-	points(x,y,col=col,cex=cex)
+	points(x, y, col = col, cex = cex, pch = pch)
 	if (lw) {
-		apu<-unique(col)
-		for (i in 1:length(apu))
-			lines(lowess(x[col==apu[i]],y[col==apu[i]],f=0.5,iter=5),col=apu[i],lwd=3)
+		apu <- unique(col)
+		for (i in 1:length(apu)) lines(lowess(x[col == apu[i]], 
+							y[col == apu[i]], f = 0.5, iter = 5), col = apu[i], lwd = 3)
 	}
 }
+
+
 
 circle<-function(x,y,r,border="black",lty="solid",lwd=1,fill=NULL) {
 	xapu<-sin(seq(0,pi,length=50)-pi/2)
