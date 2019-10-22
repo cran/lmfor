@@ -2,11 +2,11 @@
 \alias{NRnum}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Solve systems of equations using the Gauss-Newton algorithm
+Solve a Systems of Nonlinear Equations Using the Newton's Method
 }
 \description{
-Solves systems of functions of form \eqn{f_1(x) = 0},\eqn{f_2(x) = 0},... for vector \eqn{x} 
-using the Gauss-Newton algorithm (the multidimensional version of the Newton-Raphson algorithm). 
+Solves a system of equations of form \eqn{f_1(x) = 0},\eqn{f_2(x) = 0},...,\eqn{f_p(x) = 0} for 
+vector \eqn{x} using the multidimensional version of the Newton-Raphson algorithm. 
 The gradients  are solved numerically within the function using R-function \code{numericDeriv}. 
 }
 \usage{
@@ -15,13 +15,13 @@ NRnum(init, fnlist, crit = 6, ...)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{init}{
-  A vector of initial values for x.
+  vector of initial values for \eqn{x}.
   }
   \item{fnlist}{
-  a list of R-functions for \eqn{f_1(x)}, \eqn{f_2(x)}, ... the functions get a vector-valued argument \eqn{x} and return a scalar value.
+  list of R-functions for \eqn{f_1(x)}, \eqn{f_2(x)}, ..., \eqn{f_p(x)} each function gets a vector-valued argument \eqn{x} and returns a scalar value.
   }
   \item{crit}{
-  The maximum accepted value of the convergence criteria. The applied criteria is the sum of absolute function values at the solution (\eqn{|f_1(x)|+|f_2(x)+...|})
+  Convergence criterion. Stop iteration when (\eqn{|f_1(x)|+|f_2(x)|+...+|f_p(x)|<crit}). 
   }
   \item{\dots}{
   Other arguments passed to the functions of \code{fnlist}

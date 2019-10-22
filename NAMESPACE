@@ -19,12 +19,17 @@ export(circle, fithd, func.recweib,
        startHDgomperz, startHDsibbesen, startHDkorf, 
        startHDratkowsky, startHDhossfeldIV,
        updown,ddcomp,
-       HTest,area_esh,gg_wind)
-import(nlme,stats4,spatstat)
+       HTest,area_esh,gg_wind,
+       visibility_thinning_cps,HTest_cps,detectability_cps,
+       ordering_cps,polar_to_cart,cart_to_polar,triangle_coords,shades)
+import(nlme,stats4)
+importFrom("spatstat","owin","union.owin","intersect.owin","inside.owin","dilation","erosion","disc",
+           "edges","lengths.psp","is.owin","area.owin","erosion.owin","dilation.owin")
 importFrom("grDevices", "devAskNewPage")
 importFrom("graphics", "abline", "legend", "lines", "par", "points","polygon")
 importFrom("stats", "as.formula", "ecdf", "integrate", "lm", "lowess",
            "na.omit", "numericDeriv", "predict", "qgamma", "qqline",
-           "qqnorm", "quantile", "resid", "rnorm", "sd", "terms")
-
+           "qqnorm", "quantile", "resid", "rnorm", "sd", "terms","runif",
+           "approx","qnorm","qt")
+importFrom("magic","adiag")
 S3method(plot,hdmod)

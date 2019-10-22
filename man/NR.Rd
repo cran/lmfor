@@ -2,10 +2,10 @@
 \alias{NR}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Solve simple equations using Newton-Raphson algorithm.
+Solve a Nonlinear Equation Using Newton-Raphson algorithm.
 }
 \description{
-Solves equations of form \eqn{f(x)=0}, for scalar \eqn{x} using the Newton-Raphson algorithm.  
+Solves an equation equation of form \eqn{f(x)=0}, for scalar \eqn{x} using the Newton-Raphson algorithm.  
 }
 \usage{
 NR(init, fn, gr, crit = 6, range = c(-Inf, Inf))

@@ -14,7 +14,7 @@ The growth data are based on measurements of increment borer chips.}
     \item{\code{N}}{Stand density, trees per ha}
     \item{\code{G}}{Basal area, \eqn{m^2/ha}}
     \item{\code{V}}{Plot volume, \eqn{m^3/ha}}
-    \item{\code{Dg}}{Basal area median diameter, cm} 
+    \item{\code{Dg}}{Basal-area weighted mean diameter, cm} 
     \item{\code{Hg}}{Height of basal area median diameter tree, m}
     \item{\code{Tg}}{Age of basal area median tree, yr}
     \item{\code{Hdom}}{Dominant height, m}

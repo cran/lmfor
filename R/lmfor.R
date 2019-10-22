@@ -1140,11 +1140,16 @@ ddcomp<-function(d,density="dweibull",power=0,
 	    dp<-d^power
         sumdp<-sum(dp)
         ftrue<-sapply(1:n,function(i) sum(dp[d>=limits[i]&d<limits[i+1]]))/sumdp
-        Fpred<-cdf2(limits)
-        fpred<-Fpred[-1]-Fpred[-n]
-        fpred<-fpred*means^power/sum(fpred*means^power)
+		Fpred<-cdf(limits)
+		fpred<-Fpred[-1]-Fpred[-n]
+		fpred<-fpred*means^power/sum(fpred*means^power)
+		
+        Fpred2<-cdf2(limits)
+        fpred2<-Fpred2[-1]-Fpred2[-n]
+        fpred2<-fpred2*means^power/sum(fpred2*means^power)
         list(mudif=mudif,vardif=vardif,
-             sddif=sddif,errorindex=sum(abs(fpred-ftrue)))
+             sddif=sddif,ei1=sum(abs(fpred-ftrue)),
+			 ei2=sum(abs(fpred2-ftrue)))
         }
 		
 

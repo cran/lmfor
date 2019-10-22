@@ -15,8 +15,8 @@ everal empirical datasets are also included.
 \tabular{ll}{
 Package: \tab lmfor\cr
 Type: \tab Package\cr
-Version: \tab 1.3\cr
-Date: \tab 2019-12-03\cr
+Version: \tab 1.4\cr
+Date: \tab 2019-10-21\cr
 License: \tab GPL -2 \cr
 LazyLoad: \tab yes\cr
 }
@@ -28,7 +28,7 @@ Lauri Mehtatalo <lauri.mehtatalo@uef.fi>
 \references{
 Mehtatalo, L. and Lappi, J. forthcoming. Forest Biometrics with examples in R. 
 Textbook in preparation.
-Available at \url{http://cs.uef.fi/~lamehtat/}.
+Available at http://cs.uef.fi/~lamehtat/index.html.
 }
 
-\keyword{ forest biometrics }
+\keyword{forest biometrics}
