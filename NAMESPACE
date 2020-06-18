@@ -1,4 +1,4 @@
-export(circle, fithd, func.recweib,
+export(circle, fithd, func.recweib1, func.recweib2,
        HDnaslund, HDpower, HDmeyer, HDmichailoff,  
        HDnaslund2, 
        HDnaslund3, HDnaslund4,
@@ -9,8 +9,10 @@ export(circle, fithd, func.recweib,
        HDratkowsky, HDhossfeldIV,
        ImputeHeights, linesplot,  mywhiskers, NR, NRnum, 
        plot.hdmod, predvol, qqplotHD,  recweib, 
-       scaleDMean, scaleDGMean,
-       scaleDMed, scaleDGMed,
+       scaleDMean1, scaleDGMean1,
+       scaleDMed1, scaleDGMed1,
+       scaleDMean2, scaleDGMean2,
+       scaleDMed2, scaleDGMed2,
        startHDnaslund, startHDpower, startHDmeyer, startHDmichailoff,  
        startHDnaslund2,  startHDnaslund3, startHDnaslund4, 
        startHDmicment, startHDmicment2, startHDwykoff,  
@@ -21,10 +23,11 @@ export(circle, fithd, func.recweib,
        updown,ddcomp,
        HTest,area_esh,gg_wind,
        visibility_thinning_cps,HTest_cps,detectability_cps,
-       ordering_cps,polar_to_cart,cart_to_polar,triangle_coords,shades)
-import(nlme,stats4)
-importFrom("spatstat","owin","union.owin","intersect.owin","inside.owin","dilation","erosion","disc",
-           "edges","lengths.psp","is.owin","area.owin","erosion.owin","dilation.owin")
+       ordering_cps,polar_to_cart,cart_to_polar,triangle_coords,shades,
+       dll,pll,qll,rll,
+       dPercbas,pPercbas,qPercbas,rPercbas,
+       qtree.moments,qtree.jointdens,qtree.exy,qtree.varcov,interpolate.D)
+import(nlme,stats4,spatstat)
 importFrom("grDevices", "devAskNewPage")
 importFrom("graphics", "abline", "legend", "lines", "par", "points","polygon")
 importFrom("stats", "as.formula", "ecdf", "integrate", "lm", "lowess",

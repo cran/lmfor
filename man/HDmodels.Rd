@@ -155,8 +155,8 @@ should be the same as in the functions above.
 
 The models are named according to references in 
 \itemize{
-\item Zeide, B. 1993. Analysis of growth equations. Forest Science 39(3):594-616.
-\item Huang, S., Titus, S.J., and Wiens, D.P. 1992. Comparison of nonlinear height-diameter functiond for major Alberta tree species. Can J. For. Res. 22: 1297-1304. 
+\item Zeide, B. 1993. Analysis of growth equations. Forest Science 39(3):594-616. \doi{10.1093/forestscience/39.3.594}
+\item Huang, S., Titus, S.J., and Wiens, D.P. 1992. Comparison of nonlinear height-diameter functiond for major Alberta tree species. Can J. For. Res. 22: 1297-1304. \doi{10.1139/x92-172} 
 }
 
 Suggestions on naming and references on the functions are welcome. 
@@ -168,7 +168,7 @@ For functions startHDxxx, a named vector of initial estimates of a, b and (c).
 }
 
 \author{
-Lauri Mehtatalo lauri.mehtatalo@uef.fi
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 \examples{
 data(spati)
@@ -179,7 +179,7 @@ lines(d,HDnaslund(d,a=theta[1],b=theta[2]),col="red",lwd=5)
 }
 
 \references{
-Mehtatalo, L., de Miguel, S. and Gregoire, T.G. Modeling Height-diameter curves for prediction. Canadian Journal of Forest Research, 45(7): 826-837, 10.1139/cjfr-2015-0054.
+Mehtatalo, L., Gregoire, T.G., and de Miguel, S. Modeling Height-diameter curves for height prediction. Canadian Journal of Forest Research, 45(7): 826-837, \doi{10.1139/cjfr-2015-0054}
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the

@@ -27,7 +27,7 @@ and produces a panel of plots including univariate Normal qq-plots of the model.
 }
 
 \author{
-Lauri Mehtatalo (lauri.mehtatalo@uef.fi)
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 
 

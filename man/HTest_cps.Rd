@@ -113,13 +113,16 @@ The functions \code{polar_to_cart}, \code{cart_to_polar}, \code{triangle_coords}
 \code{shades} returns a list of \code{owin} objects, each representing an area behind a tree, nonvisible from the origin.
 }
 \references{
-Baddeley, A., Rubak, E. and Turner, R. (2015) \emph{Spatial Point Patterns: Methodology and Applications with {R}}. Chapman and Hall/CRC Press, London. http://www.crcpress.com/Spatial-Point-Patterns-Methodology-and-Applications-with-R/Baddeley-Rubak-Turner/9781482210200/
+Baddeley, A., Rubak, E. and Turner, R. (2015) \emph{Spatial Point Patterns: Methodology and Applications with {R}}. 
+Chapman and Hall/CRC Press, London. \doi{10.1201/b19708}
 
-Kansanen, K., Packalen, P., Maltamo, M., and Mehtatalo, L. (2019) \emph{Horvitz--Thompson-like estimation with distance-based detection probabilities for circular plot sampling of forests}. Submitted manuscript.
+Kansanen, K., Packalen, P., Maltamo, M., and Mehtatalo, L. (2020+) \emph{Horvitz--Thompson-like estimation 
+with distance-based detection probabilities for circular plot sampling of forests}. Biometrics. 
+\doi{10.1111/biom.13312}
 
 }
 \author{
-Kasper Kansanen, kasperkansanen@gmail.com
+Kasper Kansanen <\email{kasperkansanen@gmail.com}>
 }
 \note{
 These functions require the package \code{spatstat} (Baddeley et al. 2015) to work.
@@ -128,9 +131,10 @@ These functions require the package \code{spatstat} (Baddeley et al. 2015) to wo
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \examples{
-# Simulate some data from the Poisson process, in a plot of radius 10 metres 
-# and stem density of 1000 trees/ha:
-N <- rpois(1, lambda=0.05*pi*10^2)
+\dontrun{
+# Simulate a plot of radius 10 metres and stem density of 1000 trees/ha from the Poisson process:
+set.seed(1)
+N <- rpois(1, lambda=0.1*pi*10^2)
 proc <- cbind(10*sqrt(runif(N, 0 ,1)),  runif(N, -pi, pi), rweibull(N, shape=12, scale=22)/100)
 
 # Preprocess the data to the right order:
@@ -142,18 +146,17 @@ thinned<-visibility_thinning_cps(data=proc, plot.radius=10, alpha=1)
 # Calculate the detection probabilities:
 detprob <- detectability_cps(data=thinned, plot.radius=10, alpha=1)
 
-# Calculate estimates of stem density (number of trees) and basal area 
+# Calculate estimates of stand density (number of trees) and basal area 
 # (the sum of areas covered by tree stems at breast height):
 mydata<-cbind(detprob[,5], 1, pi*detprob[,3]^2)
 
 HTest_cps(data=mydata)
 
-# Calculate estimate of mean diameter at breast height with a 99 per cent 
-# approximate confidence interval:
+# Calculate estimate of mean DBH and a 99 per cent approximate confidence interval:
 mydata<-cbind(detprob[,5], detprob[,3])
 
 HTest_cps(data=mydata, total=FALSE, confidence.level=0.99)
-
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

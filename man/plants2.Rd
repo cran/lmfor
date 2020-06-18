@@ -26,7 +26,10 @@ The data includes one plot per forest stand.
 }
 
 \references{
-Miina, J. and Saksa, T. 2006. Predicting regeneration establishment in Norway spruce plantations using a multivariate multilevel model. New Forests 32: 265-283.
+Miina, J. and Saksa, T. 2006. Predicting regeneration establishment in Norway spruce plantations using a multivariate multilevel model. New Forests 32: 265-283. \doi{10.1007/s11056-006-9002-y}
+
+Mehtatalo, Lauri and Lappi, Juha 2020. Biometry for Forestry and Environmental Data: with examples in R. 
+New York: Chapman and Hall/CRC. 426 p. \doi{10.1201/9780429173462}
 }
 
 \examples{

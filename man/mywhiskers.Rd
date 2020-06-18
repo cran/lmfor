@@ -72,10 +72,11 @@ the plot are returned in a list of elements
 }
 }
 \references{
-Mehtatalo, L. 2010. Forest biometrics with R. Lecture notes.
+Mehtatalo, Lauri and Lappi, Juha 2020. Biometry for Forestry and Environmental Data: with examples in R. 
+New York: Chapman and Hall/CRC. 426 p. \doi{10.1201/9780429173462}
 }
 \author{
-Lauri Mehtatalo
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 
 \examples{

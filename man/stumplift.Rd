@@ -33,13 +33,16 @@ productivity (\eqn{m^3}/hour) for each stump.
 \references{
 Teijo Palander, Kalle Karha, Lauri Mehtatalo 2016. 
 Applying polynomial regression modeling to productivity analysis of 
-sustainable stump harvesting. Scandinavian Journal of Forest Reseach (Accepted). 
-doi:10.1080/02827581.2016.1238957
+sustainable stump harvesting. Scandinavian Journal of Forest Reseach. 
+\doi{10.1080/02827581.2016.1238957 }
 
 
 Teijo Palander, Janne Smolander, Kalle Karha, 2015. 
 Work system study of three stump-lifting devices in Finland. 
-Scandinavian Journal of Forest Research 30(6) 558-567, doi:10.1080/02827581.2015.1027731
+Scandinavian Journal of Forest Research 30(6) 558-567, \doi{10.1080/02827581.2015.1027731}
+
+Mehtatalo, Lauri and Lappi, Juha 2020. Biometry for Forestry and Environmental Data: with examples in R. 
+New York: Chapman and Hall/CRC. 426 p. \doi{10.1201/9780429173462}
 }
 
 \examples{

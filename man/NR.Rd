@@ -41,7 +41,7 @@ If estimation fails (no solution is found during 100000 iterations), both e
 lements of the solution are NA's. 
 }
 \author{
-Lauri Mehtatalo <lauri.mehtatalo@uef.fi>
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 
 

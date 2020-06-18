@@ -42,16 +42,11 @@ The observations within the group are connected at the increasing order of \code
 Used for its side effects.
 }
 \references{
-For graphs using this function, see e.g., 
-
-Mehtatalo, L., de Miguel, S. and Gregoire, T.G. Modeling Height-diameter curves for prediction. Canadian Journal of Forest Research, 45(7): 826-837, 10.1139/cjfr-2015-0054.
-
-Mehtatalo, L. 2004. A longitudinal height-diameter model for Norway spruce in Finland. Canadian Journal of Forest Research 34(1): 131-140.
-
-Mehtatalo, L. 2005. Height-diameter models for Scots pine and birch in Finland. Silva Fennica 39(1): 55-66.
+Mehtatalo, Lauri and Lappi, Juha 2020. Biometry for Forestry and Environmental Data: with examples in R. 
+New York: Chapman and Hall/CRC. 426 p. \doi{10.1201/9780429173462}
 }
 \author{
-Lauri Mehtatalo
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 
 \examples{

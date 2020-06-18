@@ -40,13 +40,16 @@ ring widths for a total of 88 trees between years 1991-2005.
 }
 
 \seealso{
-  \code{\link{afterthin}}.
+  \code{\link{afterthin}}, \code{\link{thefdata}}, \code{\link{thinning}}.
 }
 
 \references{
 Mehtatalo, L., Peltola, H., Kilpelainen, A. and Ikonen, V.-P. 2014. The response of basal area growth 
 of Scots pine to thinning: A longitudinal analysis of tree-specific series using a nonlinear 
-mixed-effects model. Forest Science 60 (4): pp. 636-644. DOI: http://dx.doi.org/10.5849/forsci.13-059.
+mixed-effects model. Forest Science 60 (4): pp. 636-644. \doi{10.5849/forsci.13-059}.
+
+Mehtatalo, Lauri and Lappi, Juha 2020. Biometry for Forestry and Environmental Data: with examples in R. 
+New York: Chapman and Hall/CRC. 426 p. \doi{10.1201/9780429173462}.
 }
 \examples{
 data(afterthin)

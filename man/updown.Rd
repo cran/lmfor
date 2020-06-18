@@ -40,7 +40,7 @@ If the sign did not change between l and u, NA is returned.
 }
 
 \author{
-Lauri Mehtatalo <lauri.mehtatalo@uef.fi>
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 \section{Warning }{May lead to infinite loop for non-continuous functions. Works only with monotonic 
 functions.} 

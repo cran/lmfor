@@ -35,7 +35,12 @@ associated with the field measurements. From a large set of tree-specific ALS ch
 }
 
 \references{
-Maltamo, M., Mehtatalo, L., Vauhkonen, J. and Packalen, P. 2012. Predicting and calibrating tree attributes by means of airborne laser scanning and field measurements. Canadian Journal of Forest Research 42: 1896-1907
+Maltamo, M., Mehtatalo, L., Vauhkonen, J. and Packalen, P. 2012. Predicting and calibrating tree attributes 
+by means of airborne laser scanning and field measurements. Canadian Journal of Forest Research 42: 1896-1907.
+\doi{10.1139/x2012-134}
+
+Mehtatalo, Lauri and Lappi, Juha 2020. Biometry for Forestry and Environmental Data: with examples in R. 
+New York: Chapman and Hall/CRC. 426 p. \doi{10.1201/9780429173462}.
 }
 
 \examples{

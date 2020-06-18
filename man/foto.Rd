@@ -42,7 +42,10 @@ through gas exchange fluorescence measurement system (GFS-3000; Walz, Effeltrich
 Laine, A.M., Ehonen, S., Juurola, E., Mehtatalo, L., and Tuittila, E-S. 2015. 
 Performance of late succession species along a chronosequence: Environment does not exclude 
 Sphagnum fuscum from the early stages of mire development. 
-Journal of Vegetation Science 26(2): 291-301. DOI: 10.1111/jvs.12231
+Journal of Vegetation Science 26(2): 291-301. \doi{10.1111/jvs.12231}
+
+Mehtatalo, Lauri and Lappi, Juha 2020. Biometry for Forestry and Environmental Data: with examples in R. 
+New York: Chapman and Hall/CRC. 426 p. \doi{10.1201/9780429173462}
 }
 
 \examples{

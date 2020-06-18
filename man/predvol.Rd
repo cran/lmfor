@@ -32,10 +32,10 @@ one individual tree.
 A vector of tree volumes (in liters).
 }
 \references{
-Laasasenaho, Jouko 1982. Taper curve and volume functions for pine, spruce and birch. Comm. Inst. For. Fenn 108: 1-74.
+Laasasenaho, Jouko 1982. Taper curve and volume functions for pine, spruce and birch. Comm. Inst. For. Fenn 108: 1-74. \url{http://urn.fi/URN:ISBN:951-40-0589-9}
 }
 \author{
-Lauri Mehtatalo
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 
 \examples{

@@ -46,7 +46,7 @@ a better graph to explore the fit at the plot level in a dataset where the diame
 
 
 \author{
-Lauri Mehtatalo (lauri.mehtatalo@uef.fi)
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 
 

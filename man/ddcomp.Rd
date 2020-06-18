@@ -34,7 +34,7 @@ specified by "limits". The error index has therefore a value between 0 (complete
 and to a rescaled and switched density, which has exactly same mean and variance as the 
 given diameter data (\code{e12}). 
 
-The error index is calculated as the sum of variable \eqn{f_{obs}-f_{pred}x^power} over the diameter classes, where \eqn{x} is 
+The error index is calculated as the sum of variable \eqn{(f_{obs}-f_{pred})x^{power}} over the diameter classes, where \eqn{x} is 
 the midpoint of the diaemeter class and \eqn{f_{obs}-f_{pred}} is the difference in predicted and observed frequency. 
 By default, \eqn{power=0}.
 }
@@ -48,7 +48,7 @@ A list of components
 }
 
 \author{
-Lauri Mehtatalo
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 
 \examples{

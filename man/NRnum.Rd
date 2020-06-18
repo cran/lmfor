@@ -37,7 +37,7 @@ If estimation fails (no solution is found during 100 iterations), both elements 
 }
 
 \author{
-Lauri Mehtatalo, lauri.mehtatalo@uef.fi
+Lauri Mehtatalo, <\email{lauri.mehtatalo@uef.fi}>
 }
 
 

@@ -109,14 +109,10 @@ as specified at \code{\link[lmfor]{HDmodels}}.
 An object of class \code{hdmod}, inheriting from class \code{nlme}. 
 }
 \references{
-Mehtatalo, L., Gregoire, T.G., and de Miguel, S. Modeling Height-diameter curves for height prediction. Manuscript.
-
-Mehtatalo, L. 2004. A longitudinal height-diameter model for Norway spruce in Finland. Canadian Journal of Forest Research 34(1): 131-140.
-
-Mehtatalo, L. 2005. Height-diameter models for Scots pine and birch in Finland. Silva Fennica 39(1): 55-66.
+Mehtatalo, L., Gregoire, T.G., and de Miguel, S. Modeling Height-diameter curves for height prediction. Canadian Journal of Forest Research, 45(7): 826-837, \doi{10.1139/cjfr-2015-0054}
 }
 \author{
-Lauri Mehtatalo
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 
 

@@ -41,7 +41,10 @@ The data were collected by Timo Pukkala.
 
 \references{
 Pukkala, T. 1989. Prediction of tree diameter and height in a Scots pine stand as a
-function of the spatial pattern of trees. Silva Fennica 23(2): 83-99.
+function of the spatial pattern of trees. Silva Fennica 23(2): 83-99. \doi{10.14214/sf.a15532}
+
+Mehtatalo, Lauri and Lappi, Juha 2020. Biometry for Forestry and Environmental Data: with examples in R. 
+New York: Chapman and Hall/CRC. 426 p. \doi{10.1201/9780429173462}
 }
 
 \keyword{ datasets }

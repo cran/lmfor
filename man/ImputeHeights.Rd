@@ -25,7 +25,7 @@ ImputeHeights(d, h, plot, modelName = "naslund", nranp = 2, varf = TRUE,
   }
 
   \item{plot}{
-  A vctor of type \code{numeric} or \code{factor}, defining the groups of the data; usually the plot indices. 
+  A vector of type \code{numeric} or \code{factor}, defining the groups of the data; usually the plot indices. 
   Should be of the same length as \code{d} and \code{h}.
   }
 
@@ -109,11 +109,11 @@ plot effect (if level=1).}
 }
 
 \references{
-Mehtatalo, L., de Miguel, S. and Gregoire, T.G. Modeling Height-diameter curves for prediction. Canadian Journal of Forest Research, 45(7): 826-837, 10.1139/cjfr-2015-0054.
+Mehtatalo, L., Gregoire, T.G., and de Miguel, S. Modeling Height-diameter curves for height prediction. Canadian Journal of Forest Research, 45(7): 826-837, \doi{10.1139/cjfr-2015-0054}
 }
 
 \author{
-Lauri Mehtatalo <lauri.mehtatalo@uef.fi>
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 \note{
 Works only with the nonlinear functions specified in \code{\link[lmfor]{HDmodels}}; does not work if the modelName is specified as a linear expression.

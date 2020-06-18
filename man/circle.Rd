@@ -18,7 +18,7 @@ This function is used for its side effects on the graphical display.
 }
 
 \author{
-Lauri Mehtatalo
+Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
 }
 
 \examples{

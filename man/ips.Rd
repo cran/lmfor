@@ -42,7 +42,10 @@ beetle.
 
 \references{Linnakoski, R., Mahilainen, S., Harrington, A., Vanhanen, H., Eriksson, M., Mehtatalo, L., 
 Pappinen, A., Wingfield, M.J. 2016. The seasonal succession of fungi associated with Ips typographus 
-beetles and their phoretic mites in an outbreak region of Finland. PLOS ONE. 10.1371/journal.pone.0155622. 
+beetles and their phoretic mites in an outbreak region of Finland. PLOS ONE. \doi{10.1371/journal.pone.0155622}. 
+
+Mehtatalo, Lauri and Lappi, Juha 2020. Biometry for Forestry and Environmental Data: with examples in R. 
+New York: Chapman and Hall/CRC. 426 p. \doi{10.1201/9780429173462}
 }
 
 \examples{

@@ -55,14 +55,15 @@ The object \code{treelist} can include trees that are not in the estimation area
 }
 \references{
 Kansanen, K., Vauhkonen, J.,  Lahivaara, T., and Mehtatalo., L. (2016) \emph{Stand density estimators
-based on individual tree detection and stochastic geometry}. Canadian Journal of Forest Research 46(11):1359--1366. http://dx.doi.org/10.1139/cjfr-2016-0181.
+based on individual tree detection and stochastic geometry}. Canadian Journal of Forest Research 46(11):1359--1366. \doi{10.1139/cjfr-2016-0181}.
 
-Baddeley, A., Rubak, E. and Turner, R. (2015) \emph{Spatial Point Patterns: Methodology and Applications with {R}}. Chapman and Hall/CRC Press, London. http://www.crcpress.com/Spatial-Point-Patterns-Methodology-and-Applications-with-R/Baddeley-Rubak-Turner/9781482210200/
+Baddeley, A., Rubak, E. and Turner, R. (2015) \emph{Spatial Point Patterns: Methodology and Applications with {R}}. Chapman and Hall/CRC Press, London. \doi{10.1201/b19708}
 
-Kansanen, K., Packalen, P., Lahivaara, T., Seppanen, A., Vauhkonen, J., Maltamo, M.,  and Mehtatalo., L. (2019) \emph{Horvitz--Thompson-like stand density estimation and functional k-NN in individual tree detection}. Submitted manuscript.
+Kansanen, K., Packalen, P., Lahivaara, T., Seppanen, A., Vauhkonen, J., Maltamo, M.,  and Mehtatalo., L. (2019) 
+\emph{Horvitz--Thompson-like stand density estimation and functional k-NN in individual tree detection}. Submitted manuscript.
 }
 \author{
-Kasper Kansanen, kasperkansanen@gmail.com
+Kasper Kansanen <\email{kasperkansanen@gmail.com}>
 }
 \note{
 These functions require the package \code{spatstat} (Baddeley et al. 2015) to work.
@@ -74,8 +75,6 @@ These functions require the package \code{spatstat} (Baddeley et al. 2015) to wo
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 %%}
 \examples{
-require(spatstat)
-
 # Generate a 10x10 meter square window:
 w<-square(10)
 
