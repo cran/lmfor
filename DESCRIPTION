@@ -1,16 +1,17 @@
 Package: lmfor
 Type: Package
 Title: Functions for Forest Biometrics
-Version: 1.5
-Date: 2020-06-16
+Version: 1.6
+Date: 2022-04-29
 Author: Lauri Mehtatalo and Kasper Kansanen
-Maintainer: Lauri Mehtatalo <lauri.mehtatalo@uef.fi>
-Depends: R (>= 2.10), stats4, nlme, spatstat, grDevices, graphics,
-        stats, magic
+Maintainer: Lauri Mehtatalo <lauri.mehtatalo@luke.fi>
+Depends: R (>= 3.5.0), nlme, spatstat
+Imports: stats4, grDevices, graphics, stats, magic, MASS, Matrix,
+        spatstat.geom
 Suggests: lme4
 Description: Functions for different purposes related to forest biometrics, including illustrative graphics, numerical computation, modeling height-diameter relationships, prediction of tree volumes, modelling of diameter distributions and estimation off stand density using ITD. Several empirical datasets are also included. 
 License: GPL-2
 NeedsCompilation: no
-Packaged: 2020-06-18 12:58:17 UTC; lamehtat
+Packaged: 2022-04-29 14:07:23 UTC; 03191657
 Repository: CRAN
-Date/Publication: 2020-06-18 14:00:02 UTC
+Date/Publication: 2022-04-29 23:40:05 UTC

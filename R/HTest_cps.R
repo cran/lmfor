@@ -387,7 +387,7 @@ detectability_cps<-function(data, plot.radius, alpha=0, polar=TRUE, npoly=1024, 
           b <- intersect.owin(b, w.of.i, fatal=F)
           
           c.of.i <- edges(disc(radius=data[i,1], centre=c(0,0), npoly=1024))
-          detectability[i] <- 1 - sum(lengths.psp(c.of.i[b]))/(2*pi*X[i,1])
+          detectability[i] <- 1 - sum(lengths_psp(c.of.i[b]))/(2*pi*X[i,1])
         }
         
         a <- union.owin(a,shadelist[[i]])
@@ -408,7 +408,7 @@ detectability_cps<-function(data, plot.radius, alpha=0, polar=TRUE, npoly=1024, 
               c.of.i <- edges(disc(radius=X[i,1], centre=c(0,0), delta=delta))
             }
             
-            detectability[i] <- 1 - sum(lengths.psp(c.of.i[b]))/(2*pi*X[i,1])
+            detectability[i] <- 1 - sum(lengths_psp(c.of.i[b]))/(2*pi*X[i,1])
             
             
           }
@@ -427,7 +427,7 @@ detectability_cps<-function(data, plot.radius, alpha=0, polar=TRUE, npoly=1024, 
               c.of.i <- edges(disc(radius=X[i,1], centre=c(0,0), delta=delta))
             }
             
-            detectability[i] <- 1 - sum(lengths.psp(c.of.i[b]))/(2*pi*X[i,1])
+            detectability[i] <- 1 - sum(lengths_psp(c.of.i[b]))/(2*pi*X[i,1])
             
             
           }

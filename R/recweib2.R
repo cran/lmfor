@@ -45,8 +45,8 @@ scaleDGMed2<-function(D,shape) {
 # And specifies which type of mean or median diameter was given 
 # in argument "D".
 
-func.recweib2<-function(lshape,G,N,D,Dtype, trace=FALSE) {  
-	shape<-exp(lshape)+2.01
+func.recweib2<-function(lshape,G,N,D,Dtype, trace=FALSE, minshape=0.01) {  
+	shape<-exp(lshape)+2+minshape
 	if (Dtype=="A") {
 		scale<-scaleDMean2(D,shape)
 	} else if (Dtype=="B") {
@@ -82,9 +82,9 @@ func.recweib2<-function(lshape,G,N,D,Dtype, trace=FALSE) {
 # G, N, D, Dtype: the values of the input arguments
 # val: the value of the equation shape(G,N,D)-shape at the solution
 # 
-recweib2<-function(G,N,D,Dtype,init=NA,trace=FALSE) {
-	lshape<-NRnum(init=log(init-2.01), 
-			fnlist=list(function(lshape) func.recweib2(lshape,G=G,N=N,D=D,Dtype=Dtype,trace=trace)),
+recweib2<-function(G,N,D,Dtype,init=NA,trace=FALSE, minshape=0.01) {
+	lshape<-NRnum(init=log(init-2-minshape), 
+			fnlist=list(function(lshape) func.recweib2(lshape,G=G,N=N,D=D,Dtype=Dtype,trace=trace,minshape=minshape)),
 			crit=10)
 	shape=exp(lshape$par)+2.01
 	if (Dtype=="A") {
@@ -155,8 +155,8 @@ scaleDGMed1<-function(D,shape) {
 # And specifies which type of mean or median diameter was given 
 # in argument "D".
 
-func.recweib1<-function(lshape,G,N,D,Dtype, trace=FALSE) {  
-	shape<-exp(lshape)+0.01
+func.recweib1<-function(lshape,G,N,D,Dtype, trace=FALSE,minshape=0.01) {  
+	shape<-exp(lshape)+minshape
 	if (Dtype=="A") {
 		scale<-scaleDMean1(D,shape)
 	} else if (Dtype=="B") {
@@ -201,11 +201,11 @@ func.recweib1<-function(lshape,G,N,D,Dtype, trace=FALSE) {
 # G, N, D, Dtype: the values of the input arguments
 # val: the value of the equation shape(G,N,D)-shape at the solution
 # 
-recweib1<-function(G,N,D,Dtype,init=NA,trace=FALSE) {
-	lshape<-NRnum(init=log(init-0.01), 
-			fnlist=list(function(lshape) func.recweib1(lshape,G=G,N=N,D=D,Dtype=Dtype,trace=trace)),
+recweib1<-function(G,N,D,Dtype,init=NA,trace=FALSE,minshape=0.01) {
+	lshape<-NRnum(init=log(init-minshape), 
+			fnlist=list(function(lshape) func.recweib1(lshape,G=G,N=N,D=D,Dtype=Dtype,trace=trace,minshape=minshape)),
 			crit=10)
-	shape=exp(lshape$par)+0.01
+	shape=exp(lshape$par)+minshape
 	if (Dtype=="A") {
 		scale<-scaleDMean1(D,shape)
 	} else if (Dtype=="B") {
@@ -216,26 +216,26 @@ recweib1<-function(G,N,D,Dtype,init=NA,trace=FALSE) {
 		scale<-scaleDGMed1(D,shape)
 	} 
 	
-	list(shape=exp(lshape$par)+0.01, scale=scale, G=G, N=N, D=D, Dtype=Dtype, val=lshape$value)
+	list(shape=exp(lshape$par)+minshape, scale=scale, G=G, N=N, D=D, Dtype=Dtype, val=lshape$value)
 }
 
-recweib<-function(G,N,D,Dtype,init=NA,trace=FALSE,weight=0) {
+recweib<-function(G,N,D,Dtype,init=NA,trace=FALSE,weight=0,minshape=0.01) {
          if (!sum(Dtype==c("A","B","C","D"))) stop("Dtype should be any of 'A', 'B', 'C', 'D'")
          if (!sum(weight==c(0,2))) stop("weight should be either 0 or 2")
          if (weight==0) {
             DQM<-sqrt(40000*G/(pi*N)) 
             if (is.na(init)) {
                if (Dtype=="A") {
-                  init<-1.0/log(DQM^4/D^4 + 0.1)
+                  init<-1.0/log(DQM^4/D^4 + 0.1)+1
                   } else if (Dtype=="B") {
-                  init<-1/log(D^2/DQM^2 + 0.05)
+                  init<-1/log(D^2/DQM^2 + 0.05)+1
                   } else if (Dtype=="C") {
-                  init<-1/log(DQM^4/D^4 + 0.1)
+                  init<-1/log(DQM^4/D^4 + 0.1)+1
                   } else if (Dtype=="D") {
-                  init<-1/log(D^2/DQM^2 + 0.05)
+                  init<-1/log(D^2/DQM^2 + 0.05)+1
                   } 
                } # (is.na(init))
-               recweib1(G,N,D,Dtype,init,trace)
+               recweib1(G,N,D,Dtype,init,trace,minshape=minshape)
             } else if (weight==2) {
               if (is.na(init)) init<-4 
               recweib2(G,N,D,Dtype,init,trace)
@@ -243,8 +243,9 @@ recweib<-function(G,N,D,Dtype,init=NA,trace=FALSE,weight=0) {
          }
 
 
-## A function that computes different stand characteristics using Wibull distribution with parameters shape and scale
-## Just to check the results
+## A function that computes different stand characteristics using 
+# weighted Weibull distribution with parameters shape and scale
+# Just to check the results
 #		 chars<-function(shape,scale,G) {
 #			 max<-qweibull(1-1e-10,shape,scale)
 #			 # G/N
@@ -258,20 +259,20 @@ recweib<-function(G,N,D,Dtype,init=NA,trace=FALSE,weight=0) {
 #		 
 # Demonstration with one example stand.
 # Example stand 1. Uneven-aged stand in Finland (Vesijako, Kailankulma, stand no 1):
-G<-17.0
-N<-1844
-D<-7.9
-DG<-19.6
-DM<-8.1
-DGM<-19.1
-recweib(G,N,D,"A")            #  1.066123 8.099707
-recweib(G,N,DG,"B")           # 1.19316  8.799652
-recweib(G,N,DM,"C")           # 1.601795 10.18257
-recweib(G,N,DGM,"D")          # 1.095979 8.280063
-recweib(G,N,D,"A",weight=2)   # 2.590354 21.66398
-recweib(G,N,DG,"B",weight=2)  # 2.563892 22.07575
-recweib(G,N,DM,"C",weight=2)  # 2.998385 17.74291
-recweib(G,N,DGM,"D",weight=2) # 2.566621 22.03183
+#G<-17.0
+#N<-1844
+#D<-7.9
+#DG<-19.6
+#DM<-8.1
+#DGM<-19.1
+#recweib(G,N,D,"A")            #  1.066123 8.099707
+#recweib(G,N,DG,"B")           # 1.19316  8.799652
+#recweib(G,N,DM,"C")           # 1.601795 10.18257
+#recweib(G,N,DGM,"D")          # 1.095979 8.280063
+#recweib(G,N,D,"A",weight=2)   # 2.590354 21.66398
+#recweib(G,N,DG,"B",weight=2)  # 2.563892 22.07575
+#recweib(G,N,DM,"C",weight=2)  # 2.998385 17.74291
+#recweib(G,N,DGM,"D",weight=2) # 2.566621 22.03183
 
 #		 
 ## Example 2. Even aged stand in Finland (see Siipilehto & Mehtatalo, Fig 2):

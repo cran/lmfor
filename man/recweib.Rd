@@ -12,9 +12,9 @@ yield the given basal area, number of stems and weighted/unweighted mean/median 
 Weibull function can be assumed either as the unweighted or basal-area weighted distribution. 
 }
 \usage{
-recweib(G, N, D, Dtype, init=NA, trace=FALSE, weight=0)
-func.recweib1(lshape, G, N, D, Dtype, trace=FALSE)
-func.recweib2(lshape, G, N, D, Dtype, trace=FALSE)
+recweib(G, N, D, Dtype, init=NA, trace=FALSE, weight=0,minshape=0.01)
+func.recweib1(lshape, G, N, D, Dtype, trace=FALSE,minshape=0.01)
+func.recweib2(lshape, G, N, D, Dtype, trace=FALSE,minshape=0.01)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -32,9 +32,11 @@ One of characters "A", "B", "C", "D", indicating which type of mean diameter was
   \item{trace}{if TRUE, some output on the convergence of the algorithm is printed on the screen. 
 }
   \item{weight}{if weight=0 (the default), Weibull function is assumed as the unweighted density. If weight=2, weibull 
-                function is assumed as the basal.area weighted density. 
+                function is assumed as the basal-area weighted density. Weight is also the theoretical infimum 
+                of the shape parameter. 
 }
-\item{lshape}{logarithmic shape parameter, (log(shape+0.01))}
+\item{lshape}{logarithmic shape parameter, (log(shape+minshape)).}
+\item{minshape}{Minimum difference of the shape parameter and its theoretical infimum.}
 }
 
 \details{

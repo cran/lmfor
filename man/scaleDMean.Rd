@@ -45,7 +45,7 @@ scaleDGMed2(D,shape)
 \references{
 Siipilehto, J. and Mehtatalo, L. 2013. Parameter recovery vs. parameter prediction for the
 Weibull distribution validated for Scots pine stands in
-Finland. Silva Fennica 47(4), article id 1057. \url{https://doi.org/10.14214/sf.1057}
+Finland. Silva Fennica 47(4), article id 1057. \doi{10.14214/sf.1057}
 }
 
 \author{

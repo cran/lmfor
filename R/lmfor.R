@@ -90,11 +90,13 @@ linesplot<-function (x, y, group, xlab = "x", ylab = "y", main = "", cex = 0.5,
 		pch = 19, col = 1, col.lin = 1, lw = FALSE, ylim = NULL, 
 		xlim = NULL, add = FALSE, lty = "solid", lwd = 1) 
 {
+	xorig<-x
+	yorig<-y
 	group <- group[order(x)]
 	y <- y[order(x)]
-	if (length(col) == 1)
-		col <- rep(col, length(x))
-	col <- col[order(x)]
+#	if (length(col) == 1)
+#		col <- rep(col, length(x))
+#	col <- col[order(x)]
 	if (length(col.lin) == 1) 
 		col.lin = rep(col.lin, length(x))
 	col.lin <- col.lin[order(x)]
@@ -107,13 +109,12 @@ linesplot<-function (x, y, group, xlab = "x", ylab = "y", main = "", cex = 0.5,
 	x <- x[order(x)]
 	
 	if (!add) {
-		plot(x, y, type = "n", xlab = xlab, ylab = ylab, main = main, 
-				cex = cex, pch = pch, col = col, ylim = ylim, xlim = xlim)
+		plot(xorig, yorig, type = "n", xlab = xlab, ylab = ylab, main = main,ylim = ylim, xlim = xlim)
 	}
 	
 	sx<-split(x,group)
 	sy<-split(y,group)
-	scol<-split(col,group)
+#	scol<-split(col,group)
 	scol.lin<-split(col.lin,group)
 	slty<-split(lty,group)
 	slwd<-split(lwd,group)
@@ -121,15 +122,13 @@ linesplot<-function (x, y, group, xlab = "x", ylab = "y", main = "", cex = 0.5,
 	for (i in 1:length(sx)) {
 		lines(sx[[i]], sy[[i]], col = scol.lin[[i]], lty = slty[[i]], lwd = slwd[[i]])
 	}
-	points(x, y, col = col, cex = cex, pch = pch)
+	points(xorig, yorig, col = col, cex = cex, pch = pch)
 	if (lw) {
 		apu <- unique(col)
 		for (i in 1:length(apu)) lines(lowess(x[col == apu[i]], 
 							y[col == apu[i]], f = 0.5, iter = 5), col = apu[i], lwd = 3)
 	}
 }
-
-
 
 circle<-function(x,y,r,border="black",lty="solid",lwd=1,fill=NULL) {
 	xapu<-sin(seq(0,pi,length=50)-pi/2)
@@ -581,7 +580,7 @@ fithd<-function(d, h, plot=c(), modelName="naslund",
 	        if (varf==1)  w<-d  else if (varf==2) w<-pmax(1,dstd+3)
 
 # Linear model fitting              
-            if (class(modelName)=="formula") { 
+            if (inherits(modelName,"formula")) { 
 			   if (!is.na(SubModels)[1]) warning("Argument 'SubModels' not implemented for linear model fit")
                modEq<-modelName
                if (!is.na(random)) {

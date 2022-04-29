@@ -26,8 +26,9 @@ export(circle, fithd, func.recweib1, func.recweib2,
        ordering_cps,polar_to_cart,cart_to_polar,triangle_coords,shades,
        dll,pll,qll,rll,
        dPercbas,pPercbas,qPercbas,rPercbas,
-       qtree.moments,qtree.jointdens,qtree.exy,qtree.varcov,interpolate.D)
-import(nlme,stats4,spatstat)
+       qtree.moments,qtree.jointdens,qtree.exy,qtree.varcov,interpolate.D,
+       volvff,predvff)
+import(nlme,stats4,spatstat.geom,spatstat)
 importFrom("grDevices", "devAskNewPage")
 importFrom("graphics", "abline", "legend", "lines", "par", "points","polygon")
 importFrom("stats", "as.formula", "ecdf", "integrate", "lm", "lowess",
@@ -35,4 +36,7 @@ importFrom("stats", "as.formula", "ecdf", "integrate", "lm", "lowess",
            "qqnorm", "quantile", "resid", "rnorm", "sd", "terms","runif",
            "approx","qnorm","qt")
 importFrom("magic","adiag")
+importFrom("Matrix","bdiag")
+importFrom("MASS","mvrnorm")
+importFrom("stats", "cov", "dnorm", "model.matrix")
 S3method(plot,hdmod)

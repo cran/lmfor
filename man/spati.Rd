@@ -6,11 +6,11 @@ The trees were collected on 56 fixed-area sample plots. The data includes no rem
 The growth data are based on measurements of increment borer chips.}
 \usage{data(spati)}
 \format{
-  A data frame with 9913 observations on the following 3 variables.
+  A data frame with 9913 observations on the following variables.
   \describe{
     \item{\code{plot}}{A unique sample plot id.}
-    \item{\code{X}}{x-coordinate of the plot}
-    \item{\code{Y}}{Y-coordinate of the plot}
+    \item{\code{X}}{Plot size in X-direction, meters}
+    \item{\code{Y}}{Plot size in y-direction, meters}
     \item{\code{N}}{Stand density, trees per ha}
     \item{\code{G}}{Basal area, \eqn{m^2/ha}}
     \item{\code{V}}{Plot volume, \eqn{m^3/ha}}
