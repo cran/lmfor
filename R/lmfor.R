@@ -1,6 +1,6 @@
 mywhiskers<-function(x, y, nclass=10, limits=NA,
                      add=FALSE, se=TRUE, main="", xlab="x", ylab="y", 
-                     ylim=NA, lwd=1, highlight="red") {
+                     ylim=NA, lwd=1, highlight="red",cex=1) {
             away<-is.na(x+y)
             x<-x[!away]
             y<-y[!away]
@@ -34,10 +34,10 @@ mywhiskers<-function(x, y, nclass=10, limits=NA,
             ub<-means+1.96*ses
             xclass<-1/2*(limits[-1]+limits[-nclass-1])
             if (add) {
-               points(xclass,means) 
+               points(xclass,means,cex=cex) 
                } else {
                if(is.na(ylim[1])) ylim<-c(min(lb),max(ub))
-               plot(xclass,means,ylim=ylim,main=main,xlab=xlab,ylab=ylab,xlim=range(x))
+               plot(xclass,means,ylim=ylim,main=main,xlab=xlab,ylab=ylab,xlim=range(x),cex=cex)
                }
             color<-rep("black",nclass)
             if (sum(ub*lb>0)) color[ub*lb>0]<-highlight
@@ -132,6 +132,10 @@ linesplot<-function (x, y, group, xlab = "x", ylab = "y", main = "", cex = 0.5,
 
 circle<-function(x,y,r,border="black",lty="solid",lwd=1,fill=NULL) {
 	xapu<-sin(seq(0,pi,length=50)-pi/2)
+	if (length(fill)==1) fill<-rep(fill,length(x))
+	if (length(border)==1) border<-rep(border,length(x))
+	if (length(lty)==1) lty<-rep(lty,length(x))
+	if (length(lwd)==1) lwd<-rep(lwd,length(x))
 	for (i in 1:length(x)) {
 		xv1<-x[i]+xapu*r[i]
 		xv2<-x[i]-xapu*r[i]
@@ -139,7 +143,7 @@ circle<-function(x,y,r,border="black",lty="solid",lwd=1,fill=NULL) {
 		yv2<--sqrt(pmax(0,r[i]^2-(xv2-x[i])^2))+y[i]
 		yv<-c(yv1,yv2)
 		xv<-c(xv1,xv2)
-		polygon(xv,yv,border=border,col=fill,lty=lty,lwd=lwd)
+		polygon(xv,yv,border=border[i],col=fill[i],lty=lty[i],lwd=lwd[i])
 	}
 }
         

@@ -9,7 +9,7 @@
 # ja tuloksen attribuuttina palautetaan osittaisderivaatat parametrien suhteen
 # thetan pitaa olla matriisi, jossa on n rivia ja sarakkeet kutakin primaarista 
 # parametria varten
-volvff<-function(dbh,h,theta=NA,logita=NA,lambda=NA) {
+volvff<-function(dbh,h,theta=NA,logita=NA,lambda=NA,grad=TRUE) {
         if (!is.na(theta[1])) {
            logita<-theta[,1]
            lam<-exp(theta[,2])
@@ -20,10 +20,13 @@ volvff<-function(dbh,h,theta=NA,logita=NA,lambda=NA) {
         rstump<-w*dbh/20+(1-w)*dbh/20*h/(h-1.3)
         value<-pi*exp(logita)/(1+exp(logita))*(rstump)^2*(10*h)
         value<-pi*1/(1+exp(-logita))*(rstump)^2*(10*h)
-        grad<-cbind(logita=value/(1+exp(logita)),
-                    lambda=-2*pi*dbh*h*rstump/(1+exp(-logita))*1.3/lam*
-                    exp((h-1.3)/lam)/((1+exp((h-1.3)/lam))^2))
-        attr(value,"gradient")<-grad
+        gr<-NA
+        if (grad) { 
+           gr<-cbind(logita=value/(1+exp(logita)),
+                       lambda=-2*pi*dbh*h*rstump/(1+exp(-logita))*1.3/lam*
+                       exp((h-1.3)/lam)/((1+exp((h-1.3)/lam))^2))
+           }
+        attr(value,"gradient")<-gr
         value
         }
 
@@ -45,7 +48,7 @@ predvff<-function(data,mod,p=0.05,
                   varMethod="taylor",
                   biasCorr="none",
                   nrep=500) {
-         stopifnot(any(varMethod==c("taylor","simul")))
+         stopifnot(any(varMethod==c("taylor","simul","none")))
          stopifnot(any(biasCorr==c("none","integrate","twopoint")))
          data$logita<-data$lambda<-0
          n<-dim(data)[1]
@@ -98,7 +101,13 @@ predvff<-function(data,mod,p=0.05,
             totvolsim<-apply(musim,2,sum)
             totvolci<-quantile(totvolsim,probs=c(p/2,1-p/2))/1e3
             totvolvar<-sum(varmu)
-            qtree<-t(apply(musim,1,function(x) quantile(x,probs=c(p/2,1-p/2))))
+            qtree<-matrix(t(apply(musim,1,function(x) quantile(x,probs=c(p/2,1-p/2)))),byrow=FALSE,ncol=2)
+            } else if (varMethod=="none") {
+            totvol<-sum(muhat)
+            totvolvar<-NA
+            totvolci<-c(NA,NA)
+            varmu<-matrix(NA,nrow=n,ncol=n)
+            qtree<-matrix(NA,ncol=2,nrow=n)
             }
          value<-list(totvol=totvol/1000,totvolvar=totvolvar/1e6,totvolci=totvolci)
          attr(value,"trees")<-data.frame(volume=muhat,variance=diag(varmu),

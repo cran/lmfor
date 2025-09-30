@@ -18,6 +18,7 @@ variables describing the grouping of the trees to stands and plots and informati
 \format{
   A data frame with 8508 observations on the following 11 variables.
   \describe{
+    \item{\code{tree_id}}{Tree id (numeric)}
     \item{\code{stand}}{Stand id (numeric)}
     \item{\code{plot}}{Plot id (nested within stand)}
     \item{\code{v}}{Tree volume, dm^3}

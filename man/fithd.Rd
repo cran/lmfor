@@ -112,15 +112,15 @@ An object of class \code{hdmod}, inheriting from class \code{nlme}.
 Mehtatalo, L., Gregoire, T.G., and de Miguel, S. Modeling Height-diameter curves for height prediction. Canadian Journal of Forest Research, 45(7): 826-837, \doi{10.1139/cjfr-2015-0054}
 }
 \author{
-Lauri Mehtatalo <\email{lauri.mehtatalo@uef.fi}>
+Lauri Mehtatalo <\email{lauri.mehtatalo@luke.fi}>
 }
 
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[lmfor]{HDmodels}} for the available functions, Functions \code{\link{nlme}},  
-\code{\link{lme}}, \code{\link{gls}} or \code{\link{gnls}} for details on model fitting, 
+\code{\link[lmfor]{HDmodels}} for the available functions, Functions \code{\link[nlme]{nlme}},  
+\code{\link[nlme]{lme}}, \code{\link[nlme]{gls}} or \code{\link[nlme]{gnls}} for details on model fitting, 
 \code{\link[lmfor]{ImputeHeights}} for imputing unobserved tree heights.
 }
 \examples{

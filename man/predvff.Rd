@@ -9,7 +9,7 @@ The Variable Form-Factor Volume Model
 \description{
 An R-function for the variable form-factor volume model and a function for computing 
 bias-corrected volumes augmented with parameter uncertainty from a model fitted using nlme.}
-\usage{volvff(dbh,h,theta=NA,logita=NA,lambda=NA)
+\usage{volvff(dbh,h,theta=NA,logita=NA,lambda=NA,grad=TRUE)
 predvff(data,mod,p=0.05,varMethod="taylor",biasCorr="none",nrep=500)
 }
 
@@ -28,6 +28,8 @@ predvff(data,mod,p=0.05,varMethod="taylor",biasCorr="none",nrep=500)
   If \code{theta} is not \code{NA}, argumets \code{logita} 
   and \code{lambda} are ignored.  
   }
+  \item{grad}{logical, whether the Jacobian needs to be returned in attribute "gradient"
+  }
   \item{data}{
   A data set including variables \code{dbh} and \code{h} and 
   all variables that are used as second-order predictors in \code{mod}. 
@@ -44,9 +46,11 @@ predvff(data,mod,p=0.05,varMethod="taylor",biasCorr="none",nrep=500)
   Symmetric \eqn{100(1-p)}\% confidence intervals are returned.  
   }
   \item{varMethod}{
-  Either \code{"taylor"}(the default) or \code{"simul"}. Specifies whether parameter 
+  Either \code{"taylor"}(the default), \code{"simul"} or \code{"none"}. Specifies whether parameter 
   uncertainty is approximated by using a linearized model based on the 
-  first-order Taylor approximation or by using Monte Carlo simulation.  
+  first-order Taylor approximation or by using Monte Carlo simulation. 
+  Using "none" waives computation of uncertainty, and "NA" will be used in the variances and confidence intervals 
+  in the returned object.
   }
   \item{biasCorr}{
   Either \code{"none"}(the default), \code{"integrate"} or \code{"twopoint"}. 

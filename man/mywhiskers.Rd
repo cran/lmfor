@@ -21,7 +21,8 @@ mywhiskers(x, y,
            ylab = "y", 
            ylim = NA, 
            lwd = 1, 
-           highlight = "red")
+           highlight = "red",
+           cex=1)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -47,6 +48,9 @@ Graphical parameters of the plot. ignored if \code{add=TRUE}.
 }
   \item{highlight}{
 The color for lines that do not cross the y-axis.
+}
+  \item{cex}{
+The plotting symbol size.
 }
 }
 \details{
